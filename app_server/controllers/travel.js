@@ -1,5 +1,5 @@
 const fs = require('fs');
-const trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8')); //not best practice. Idea;;y this owuld be read once and stored in cache rather than reading during every iteration
+const trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8')); //not best practice. Ideally this would be read once and stored in cache rather than reading during every iteration
 
 /* GET travel view */
 const travel = (req, res) => {
