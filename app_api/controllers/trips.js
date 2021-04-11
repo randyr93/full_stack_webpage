@@ -44,33 +44,33 @@ const tripsFindCode = async (req, res) => {
 };
 
 const tripsAddTrip = async (req, res) => {
-    model
-    .create({
-        code: req.body.code,
-        name: req.body.name,
-        length: req.body.length,
-        start: req.body.start,
-        resort: req.body.resort,
-        perPerson: req.body.perPerson,
-        image: req.body.image,
-        description: req.body.description
-    },
-    (err, trip) => {
-        if (err) {
-            return res
-                .status(400) // bad request, invalid content
-                .json(err);
-        } else {
-            return res
-                .status(201) // created
-                .json(trip);
-        }
-    });
+    Model
+        .create({
+            code: req.body.code,
+            name: req.body.name,
+            length: req.body.length,
+            start: req.body.start,
+            resort: req.body.resort,
+            perPerson: req.body.perPerson,
+            image: req.body.image,
+            description: req.body.description
+        },
+        (err, trip) => {
+            if (err) {
+                return res
+                    .status(400) // bad request, invalid content
+                    .json(err);
+            } else {
+                return res
+                    .status(201) // created
+                    .json(trip);
+            }
+        });
 }
 
 const tripsUpdateTrip = async (req, res) => {
     console.log(req.body);
-    model
+    Model
         .findOneAndUpdate({ 'code': req.params.tripCode }, {
             code: req.body.code,
             name: req.body.name,

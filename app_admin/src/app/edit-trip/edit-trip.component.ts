@@ -19,14 +19,14 @@ export class EditTripComponent implements OnInit {
     private tripService: TripDataService
   ) { }
 
-ngOnInit() {
-  // retrieve stashed tripId
-  let tripCode = localStorage.getItem("tripCode");
-  if (!tripCode) {
-    alert("Something wrong, couldn't find where I stashed tripCode!");
-    this.router.navigate(['']);
-    return;
-  }
+  ngOnInit() {
+    // retrieve stashed tripId
+    let tripCode = localStorage.getItem("tripCode");
+    if (!tripCode) {
+      alert("Something wrong, couldn't find where I stashed tripCode!");
+      this.router.navigate(['']);
+      return;
+    }
 
   console.log('EditTripComponent#onInit found tripCode ' + tripCode);
 
@@ -49,7 +49,7 @@ ngOnInit() {
     .then(data => {
       console.log(data);
       //don't use editForm.setValue() as it will throw console error
-      this.editForm.patchValue(data);
+      this.editForm.patchValue(data[0]);
     })
 }
 
