@@ -67,3 +67,4 @@ process.once('SIGUSR2', () => {
 
   // bring in the mongoose schema
   require('./travlr');
+  require('./user');
